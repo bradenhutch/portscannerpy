@@ -30,8 +30,10 @@ def singleTCPscan():
 	try:
 		sPort = int(startPort)
 		nPort = int(endPort)
+		nPort = nPort + 1
 		for port in range(sPort, nPort):  
 			sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			sock.settimeout(0.1)
 			result = sock.connect_ex((remoteServerIP, port))
 			if result == 0:
 				print "Port {}:      Open".format(port)
@@ -45,6 +47,8 @@ def singleTCPscan():
 	except socket.error:
 		print "Couldn't connect to server"
 		sys.exit()
+	except Exception:
+		print "something happened!"
 	# Checking the time again
 	t2 = datetime.now()
 	# Calculates the difference of time, to see how long it took to run the script
@@ -163,7 +167,7 @@ def pingSweep():
 def traceRoute():
 	# Based on https://gist.github.com/amitsaha/8879445
 	hostname = raw_input("Please input the host you would like to trace: ")
-	# we start with 1
+	# Time to live
 	ttl = 4
 	while 1:
 		try:
