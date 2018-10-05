@@ -1,7 +1,8 @@
 Braden's portscanner
 
 To run this script you will need to have python installed along with these pip packages:
-	netaddr --> pip install netaddr
+
+x	netaddr --> pip install netaddr
 	ipaddress --> pip install ipaddress
 	ping --> pip install ping
 	scapy --> pip install scapy
