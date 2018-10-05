@@ -199,9 +199,9 @@ s.connect(("8.8.8.8", 80))
 myip = s.getsockname()[0]
 s.close()
 
-print "Your current IP is ", myip
+print "Your current IP is", myip
 
-print "\nYour options are...\n1. Single host TCP scan\n2. Multi host TCP scan\n3. Multi host ICMP sweep\n4. Traceroute"
+print "\nYour options are...\n1. Single host TCP scan\n2. Multi host TCP scan\n3. Multi host ICMP sweep (Requires sudo)\n4. Traceroute (Requires sudo)"
 selection = raw_input("Enter your selection: ")
 
 if selection == "1":
